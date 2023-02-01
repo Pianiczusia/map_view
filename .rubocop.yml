@@ -1,0 +1,77 @@
+AllCops:
+  TargetRubyVersion: 3.2.0
+  MaxFilesInCache: 30000
+  DefaultFormatter: progress
+  SuggestExtensions: true
+  NewCops: enable
+  Exclude:
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
+    - '.git/**/*'
+    - 'spec/spec_helper.rb'
+    - 'spec/rails_helper.rb'
+    - 'Rakefile'
+    - 'config.ru'
+    - 'db/**/*.rb'
+    - 'bin/*'
+    - 'lib/tasks/**/*'
+    - 'app/views/**/*.slim'
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/CommentedKeyword:
+  Exclude:
+    - 'config/application.rb'
+    - 'config/environments/development.rb'
+    - 'config/environments/test.rb'
+
+Style/Documentation:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 180
+  
+Layout/EndOfLine:
+  EnforcedStyle: lf
+
+Metrics/BlockLength:
+  Max: 80
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+    - '**/*.gemspec'
+
+Metrics/ModuleLength:
+  Max: 200
+  Exclude:
+    - 'spec/**/*.rb'
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'config/puma.rb'
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/AbcSize:
+  Max: 32
+
+Metrics/ParameterLists:
+  Max: 10
+  CountKeywordArgs: false
+
+Layout/HashAlignment:
+  Enabled: false
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+  EnforcedLastArgumentHashStyle: always_inspect
+
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
