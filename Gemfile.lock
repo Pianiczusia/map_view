@@ -158,6 +158,8 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    jsbundling-rails (1.1.1)
+      railties (>= 6.0.0)
     json (2.6.3)
     launchy (2.5.2)
       addressable (~> 2.8)
@@ -255,6 +257,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rbs (2.8.4)
+    redis (4.8.0)
     redis-client (0.12.1)
       connection_pool
     regexp_parser (2.6.2)
@@ -407,12 +410,14 @@ DEPENDENCIES
   guard-rubocop
   importmap-rails
   jbuilder
+  jsbundling-rails (~> 1.1, >= 1.1.1)
   letter_opener
   pg (~> 1.1)
   prettier
   puma (~> 5.0)
   rack-mini-profiler
   rails (~> 7.0.4, >= 7.0.4.2)
+  redis (~> 4.0)
   rspec-rails
   rspec-sidekiq
   rspec_junit_formatter
