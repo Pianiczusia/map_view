@@ -72,6 +72,8 @@ group :development, :test do
   gem 'scss_lint', require: false
   gem 'slim_lint'
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
 end
 

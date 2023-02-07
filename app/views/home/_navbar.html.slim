@@ -1,6 +1,5 @@
  = button_to 'Log out', destroy_account_session_path, method: :delete
  br
- = button_to 'Edit', edit_account_registration_path
+ = link_to 'Edit', edit_account_registration_path
  br
- -if current_account.admin?
-     = link_to 'Users', accounts_path
+ = link_to 'Users', accounts_path
