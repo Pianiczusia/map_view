@@ -1,0 +1,7 @@
+h1 Accounts:
+br
+- @accounts.each do |accounts|
+    =accounts.email
+    =link_to 'Show account', account_path(id: accounts.id)
+    =link_to 'Edit account', edit_account_path(id: accounts.id) 
+    br
