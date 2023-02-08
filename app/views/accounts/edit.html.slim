@@ -3,19 +3,22 @@ p
   |User id: 
   = @accounts.try(:id)
 
-= form_for(@accounts) do |f|
-   
-    = f.label :email 
+= form_for(@accounts) do |f| 
+    = f.label :email, 'Email: '
     = f.text_field :email 
     br
-    = f.label :password 
+    = f.label :password, 'Password: '
     = f.text_field :password, required: false 
     br
-    = f.label :first_name 
+    = f.label :first_name, 'First name: '
     = f.text_field :first_name, required: false
     br
-    = f.label :lasr_name 
+    = f.label :lasr_name, 'Last name: '
     = f.text_field :last_name, required: false
     br
+     = f.check_box :admin
+     = f.label :admin, 'Admin'
+     br
     = f.submit
+
 =link_to 'Delete user account', accounts_path(@account), method: :delete, data: { confirm: "Delete this user?" } 
