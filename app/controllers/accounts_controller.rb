@@ -26,7 +26,6 @@ class AccountsController < ApplicationController
 
   def account_params
     params.require(:account).permit(:email, :password, :first_name, :last_name, :admin)
-
     password_exists = params.dig(:account, :password).present?
     attributes = %i[email first_name last_name admin]
     attributes << :password if password_exists

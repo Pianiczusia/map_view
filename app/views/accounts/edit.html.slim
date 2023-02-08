@@ -3,6 +3,7 @@ p
   |User id: 
   = @accounts.try(:id)
 
+
 = form_for(@accounts) do |f| 
     = f.label :email, 'Email: '
     = f.text_field :email 
