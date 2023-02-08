@@ -8,11 +8,11 @@ class AccountsController < ApplicationController
   end
 
   def show
-    @accounts = Account.find(params[:id])
+    render locals: { account: }
   end
 
   def edit
-    @accounts = Account.find(params[:id])
+    render locals: { account: }
   end
 
   def update

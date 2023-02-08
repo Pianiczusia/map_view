@@ -1,9 +1,9 @@
 h1 Edit user details
 p 
   |User id: 
-  = @accounts.try(:id)
+  = account.try(:id)
 
-= form_for(@accounts) do |f| 
+= form_for(account) do |f| 
     = f.label :email, 'Email: '
     = f.text_field :email 
     br
@@ -21,4 +21,4 @@ p
      br
     = f.submit
 
-=link_to 'Delete user account', accounts_path(@accounts), method: :delete, data: { confirm: "Delete this user?" } 
+=link_to 'Delete user account', accounts_path(account), method: :delete, data: { confirm: "Delete this user?" } 
