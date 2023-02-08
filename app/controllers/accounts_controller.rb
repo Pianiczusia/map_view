@@ -1,38 +1,41 @@
 # frozen_string_literal: true
 
 class AccountsController < ApplicationController
-  before_action :authenticate_admin!, only: %i[show index edit destroy]
-  
+  before_action :authenticate_admin!, only: %i[show index edit destroy update]
+
   def index
-    @accounts = Account.all
+    render locals: { accounts: Account.all }
   end
 
   def show
-    @accounts = Account.find(params[:id])
+    render locals: { account: }
   end
 
   def edit
-    @accounts = Account.find(params[:id])
+    render locals: { account: }
   end
 
   def update
-    @accounts = Account.find(params[:id])
-    if @accounts.update(account_params)
-      redirect_to accounts_path
-    else
-      render 'edit'
-    end
+    return redirect_to accounts_path if account.update!(account_params)
+
+    render 'edit', locals: { account: }
   end
-  
+
+  def account
+    @account ||= Account.find(params[:id])
+  end
+
   def account_params
-    params.require(:accounts).permit(:email, :password, :first_name, :last_name)
+    params.require(:account).permit(:email, :password, :first_name, :last_name, :admin)
+    password_exists = params.dig(:account, :password).present?
+    attributes = %i[email first_name last_name admin]
+    attributes << :password if password_exists
+    params.require(:account).permit(*attributes)
   end
+
   def destroy
-    Account.find(params[:id]).destroy
-    if @accounts.destroy
-      redirect_to accounts_path, notice: 'User deleted.'
-    else
-      redirect_to accounts_path, flash: { error: 'User could not be deleted.' }
-    end
+    return redirect_to accounts_path, notice: 'User deleted.' if account.destroy
+
+    redirect_to accounts_path, flash: { error: 'User could not be deleted.' }
   end
 end
