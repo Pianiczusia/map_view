@@ -1,4 +1,4 @@
-h1 Show user details:
+h1 User details:
 p 
  |User email: 
  = account.email
@@ -14,3 +14,16 @@ p
 p 
  |User admin: 
  = account.admin
+h3
+ | Invitations: 
+p 
+ |Invitation created: 
+ = account.invitation_created_at
+p 
+ |User accepted invitation: 
+ = account.invitation_accepted_at
+p 
+ |User created by: 
+ = account.invitation_created_at?
+ br
+ = link_to "Back", :back

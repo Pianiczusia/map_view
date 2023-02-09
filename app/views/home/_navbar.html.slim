@@ -2,4 +2,7 @@
  br
  = link_to 'Edit', edit_account_registration_path
  br
- = link_to 'Users', accounts_path
+ - if current_account.admin?
+    = link_to 'Users', accounts_path
+    br
+    = link_to "Invite", new_account_invitation_path

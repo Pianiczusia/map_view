@@ -58,6 +58,8 @@ gem 'simple_form'
 gem 'slim-rails'
 gem 'view_component'
 
+gem 'devise_invitable', '~> 2.0.0'
+
 group :development, :test do
   gem 'annotate'
   gem 'bullet'
