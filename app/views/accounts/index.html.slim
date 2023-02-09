@@ -2,7 +2,8 @@ h1 Accounts:
 br
 - accounts.each do |account|
     =account.email
-    =link_to 'Show account', account_path(id: account.id), full: true
+    =link_to 'Show account', account_path(id: account.id)
     =link_to 'Edit account', edit_account_path(id: account.id) 
-    br
+    hr
+= link_to "Back", :back
     

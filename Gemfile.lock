@@ -109,6 +109,9 @@ GEM
       devise (>= 2.1.0)
     devise-i18n (1.10.2)
       devise (>= 4.8.0)
+    devise_invitable (2.0.7)
+      actionmailer (>= 5.0)
+      devise (>= 4.6)
     diff-lcs (1.5.0)
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
@@ -410,6 +413,7 @@ DEPENDENCIES
   devise-async
   devise-encryptable
   devise-i18n
+  devise_invitable (~> 2.0.0)
   factory_bot_rails
   faker
   figaro
