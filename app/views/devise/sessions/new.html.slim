@@ -1,4 +1,4 @@
-h2
+p class="text-center text-3xl text-gray-500 font-light"
   | Log in
 = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .form-inputs
@@ -11,5 +11,6 @@ h2
                      input_html: { autocomplete: "current-password" }
     = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
   .form-actions
-    = f.button :submit, "Log in"
+    = f.button :submit, "Log in",
+      class:"text-white uppercase bg-red-800 hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-xs px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
 = render "devise/shared/links"

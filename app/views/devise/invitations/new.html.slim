@@ -1,11 +1,17 @@
-h2
+.p-6.rounded.border.border-gray-200
+ h2.font-medium.text-3xl
   = t "devise.invitations.new.header"
 = simple_form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post }) do |f|
   = f.error_notification
   - resource.class.invite_key_fields.each do |field|
     .form-inputs
       = f.input field
-      = f.check_box :admin
-      = f.label :admin, 'Admin'
+      = f.check_box :admin,
+       class:"w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+      = f.label :admin, 'Admin',
+       class:"ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
   .form-actions
-    = f.button :submit, t("devise.invitations.new.submit_button")
+    = f.button :submit, t("devise.invitations.new.submit_button"),
+      class:"text-white bg-red-800 hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+br
+= link_to "Back", :back, class:"text-white bg-gradient-to-br from-rose-500 to-red-700 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"

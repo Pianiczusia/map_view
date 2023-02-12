@@ -1,4 +1,5 @@
-h2
+.p-6.rounded.border.border-gray-200
+ h2.font-medium.text-3xl
   = t "devise.invitations.edit.header"
 = simple_form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put }) do |f|
   = f.error_notification
@@ -7,4 +8,5 @@ h2
     = f.input :password
     = f.input :password_confirmation
   .form-actions
-    = f.button :submit, t("devise.invitations.edit.submit_button")
+    = f.button :submit, t("devise.invitations.edit.submit_button"),
+      class:"text-white bg-red-800 hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"

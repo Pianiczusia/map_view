@@ -1,29 +1,87 @@
-h1 User details:
-p 
- |User email: 
- = account.email
-p 
- |User id: 
- = account.id
-p 
- |User first name: 
- = account.first_name
-p 
- |User last name: 
- = account.last_name
-p 
- |User admin: 
- = account.admin
-h3
+/ .relative.overflow-x-auto.shadow-md.sm:rounded-lg
+/   table.w-full.text-sm.text-left.text-gray-500.dark:text-gray-400
+/     caption.p-5.text-lg.font-semibold.text-left.text-gray-900.bg-white class="dark:text-white dark:bg-gray-800"
+/      | User details:
+/     thead.text-xs.text-gray-700.uppercase.bg-gray-50.dark:bg-gray-700.dark:text-gray-400
+/       tr
+/         th.px-6.py-3[scope="col"]
+/           |  User email: 
+/         th.px-6.py-3[scope="col"]
+/           |  User id: 
+/         th.px-6.py-3[scope="col"]
+/           |  User first name:
+/         th.px-6.py-3[scope="col"]
+/           |  User last name: 
+/         th.px-6.py-3[scope="col"]
+/           |  User admin:
+/     tbody
+/       tr.bg-white.border-b.dark:bg-gray-900.dark:border-gray-700
+/         th.px-6.py-4.font-medium.text-gray-900.whitespace-nowrap.dark:text-white[scope="row"]
+/            = account.email 
+/         td.px-6.py-4
+/            = account.id
+/         td.px-6.py-4
+/           = account.first_name
+/         td.px-6.py-4
+/           = account.last_name
+/         td.px-6.py-4
+/           = account.admin
+
+h1 class="font-medium text-3xl"
+ | User details:
+
+dl.max-w-md.text-gray-900.divide-y.divide-gray-200 class="dark:text-white dark:divide-gray-700"
+  .flex.flex-col.pb-3
+
+  dt.mb-1.text-gray-500 class="md:text-lg dark:text-gray-400"
+    |  User email: 
+  dd.text-lg.font-semibold
+    = account.email 
+  .flex.flex-col.py-3
+
+  dt.mb-1.text-gray-500 class="md:text-lg dark:text-gray-400"
+    |  User id:
+  dd.text-lg.font-semibold
+    = account.id
+  .flex.flex-col.pt-3
+
+  dt.mb-1.text-gray-500 class="md:text-lg dark:text-gray-400"
+    |  User first name: 
+  dd.text-lg.font-semibold
+    = account.first_name
+
+  dt.mb-1.text-gray-500 class="md:text-lg dark:text-gray-400"
+    |  User last name: 
+  dd.text-lg.font-semibold
+    = account.last_name
+
+  dt.mb-1.text-gray-500 class="md:text-lg dark:text-gray-400"
+    |  User admin: 
+  dd.text-lg.font-semibold
+    = account.admin
+br
+
+h1  class="font-medium text-2xl"
  | Invitations: 
-p 
- |Invitation created: 
- = account.invitation_created_at
-p 
- |User accepted invitation: 
- = account.invitation_accepted_at
-p 
- |User created by invitation: 
- = account.invitation_created_at?
- br
- = link_to "Back", :back
+
+dl.max-w-md.text-gray-900.divide-y.divide-gray-200 class="dark:text-white dark:divide-gray-700"
+  .flex.flex-col.pb-3
+
+  dt.mb-1.text-gray-500 class="md:text-lg dark:text-gray-400"
+    | Invitation created: 
+  dd.text-lg.font-semibold
+    = account.invitation_created_at
+  .flex.flex-col.py-3
+
+  dt.mb-1.text-gray-500 class="md:text-lg dark:text-gray-400"
+    |User accepted invitation at:
+  dd.text-lg.font-semibold
+    = account.invitation_accepted_at
+  .flex.flex-col.pt-3
+
+  dt.mb-1.text-gray-500 class="md:text-lg dark:text-gray-400"
+    |User created by invitation: 
+  dd.text-lg.font-semibold
+    = account.invitation_created_at?
+br
+= link_to "Back", :back, class:"text-white bg-gradient-to-br from-rose-500 to-red-700 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
