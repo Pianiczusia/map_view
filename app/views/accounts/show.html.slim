@@ -1,29 +1,41 @@
-h1 User details:
-p 
- |User email: 
- = account.email
-p 
- |User id: 
- = account.id
-p 
- |User first name: 
- = account.first_name
-p 
- |User last name: 
- = account.last_name
-p 
- |User admin: 
- = account.admin
-h3
- | Invitations: 
-p 
- |Invitation created: 
- = account.invitation_created_at
-p 
- |User accepted invitation: 
- = account.invitation_accepted_at
-p 
- |User created by invitation: 
- = account.invitation_created_at?
- br
- = link_to "Back", :back
+.flex.flex-col.justify-center.items-center.mt-14
+ h1 class="font-semibold text-4xl mb-2"
+  | User details:
+ p class="text-xl dark:text-gray-400 font-semibold"
+  |  Email: 
+  p class="font-normal text-gray-500 mb-2"
+    = account.email 
+ p class="text-xl dark:text-gray-400 font-semibold"
+  | Id: 
+  p class="font-normal text-gray-500 mb-2"
+    = account.id
+ p class="text-xl dark:text-gray-400 font-semibold"
+  |  First name: 
+  p class="font-normal text-gray-500 mb-2"
+    = account.first_name 
+ p class="text-xl dark:text-gray-400 font-semibold"
+  |  Last name: 
+  p class="font-normal text-gray-500 mb-2"
+    = account.last_name 
+ p class="text-xl dark:text-gray-400 font-semibold"
+  |  Admin: 
+  p class="font-normal text-gray-500 mb-2"
+    = account.admin 
+
+
+
+ h1 class="font-semibold text-4xl mb-2 mt-5"
+  | Invitations:
+ p class="text-xl dark:text-gray-400 font-semibold"
+  |  User created by invitation: 
+  p class="font-normal text-gray-500 mb-2"
+    = account.invitation_created_at? 
+ p class="text-xl dark:text-gray-400 font-semibold"
+  |  Invitation created at: 
+  p class="font-normal text-gray-500 mb-2"
+    = account.invitation_created_at 
+ p class="text-xl dark:text-gray-400 font-semibold"
+  | Invitation accepted at: 
+  p class="font-normal text-gray-500 mb-2"
+    = account.invitation_accepted_at
+

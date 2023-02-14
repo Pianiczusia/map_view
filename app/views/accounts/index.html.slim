@@ -1,9 +1,36 @@
-h1 Accounts:
-br
-- accounts.each do |account|
-    =account.email
-    =link_to 'Show account', account_path(id: account.id)
-    =link_to 'Edit account', edit_account_path(id: account.id) 
-    hr
-= link_to "Back", :back
+.relative.overflow-x-auto.shadow-md class="sm:rounded-lg"
+table.w-full.text-sm.text-left.text-gray-600 class="dark:text-gray-400"
+    caption.p-5.text-lg.font-semibold.text-left.text-gray-900.bg-white class="dark:text-white dark:bg-gray-800"
+     | Accounts
+    thead.text-xs.text-gray-700.uppercase.bg-gray-200 class="dark:bg-gray-700 dark:text-gray-400"
+     tr
+        th.px-6.py-3[scope="col"]
+          |  Email
+        th.px-6.py-3[scope="col"]
+          |  First name 
+        th.px-6.py-3[scope="col"]
+          |  Last name 
+        th.px-6.py-3[scope="col"]
+          |  Invitation accepted 
+        th.px-6.py-3[scope="col"]
+          span.sr-only
+            | Show
+        th.px-6.py-3[scope="col"]
+          span.sr-only
+            | Edit
+    tbody
+    - accounts.each do |account|
+     tr.bg-white.border-b class="dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600"
+        th.px-6.py-4.font-medium.text-gray-900.whitespace-nowrap[scope="row"]
+          = account.email
+        td.px-6.py-4
+          = account.first_name
+        td.px-6.py-4
+           = account.last_name
+        td.px-6.py-4
+           =account.invitation_accepted_at
+        td.px-6.py-4  
+          =link_to 'Show', account_path(id: account.id), class:"font-medium text-blue-600 dark:text-blue-500 hover:underline"
+        td.px-6.py-4
+          =link_to 'Edit', edit_account_path(id: account.id), class:"font-medium text-blue-600 dark:text-blue-500 hover:underline"
     
