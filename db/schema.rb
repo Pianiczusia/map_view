@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_09_111445) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_14_175736) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,6 +39,33 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_111445) do
     t.index ["invited_by_id"], name: "index_accounts_on_invited_by_id"
     t.index ["invited_by_type", "invited_by_id"], name: "index_accounts_on_invited_by"
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
+  end
+
+  create_table "addresses", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "line1"
+    t.string "line2"
+    t.string "country"
+    t.string "city"
+    t.string "state"
+    t.string "post_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "lat"
+    t.string "lon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "places", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.string "tags"
+    t.text "details"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
