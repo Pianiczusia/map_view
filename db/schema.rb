@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_14_175736) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_15_185347) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,6 +50,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_175736) do
     t.string "post_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "place_id"
+    t.index ["place_id"], name: "index_addresses_on_place_id"
   end
 
   create_table "locations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -57,6 +59,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_175736) do
     t.string "lon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "address_id"
+    t.index ["address_id"], name: "index_locations_on_address_id"
   end
 
   create_table "places", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -66,6 +70,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_175736) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "account_id"
+    t.index ["account_id"], name: "index_places_on_account_id"
   end
 
 end
