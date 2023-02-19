@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class PlacesController < ApplicationController
+ 
   def index
-    render locals: { places: Place.all }
+    render locals: { places: Place.where(account:  current_account) }
   end
 
   def show
@@ -19,12 +20,9 @@ class PlacesController < ApplicationController
 
   def create
     place = Place.new(place_params.merge(account: current_account))
-    if place.save
-      raise
-      redirect_to places_path
-    else
-      render :new, locals: { place: }, status: :unprocessable_entity
-    end
+    return redirect_to places_path if place.save
+
+    render :new, locals: { place: }, status: :unprocessable_entity
   end
 
   def update
@@ -34,7 +32,7 @@ class PlacesController < ApplicationController
   end
 
   def place
-    @place ||= Place.find(params[:id])
+    @place ||= Place.find_by!(id: params[:id], account: current_account)
   end
 
   def destroy

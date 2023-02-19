@@ -1,0 +1,47 @@
+.flex.flex-col.justify-center.items-center.mt-4
+ h1 class="font-semibold text-4xl mb-2"
+  |Place details:
+ p class="text-xl dark:text-gray-400 font-semibold"
+  | Places name: 
+  p class="font-normal text-gray-500 mb-2"     
+    =place.name
+ p class="text-xl dark:text-gray-400 font-semibold"
+  | Places details: 
+  p class="font-normal text-gray-500 mb-2"
+    =place.details 
+  p class="text-xl dark:text-gray-400 font-semibold"
+    | Places tags: 
+    p class="font-normal text-gray-500 mb-2"
+       =place.tags
+  p class="text-xl dark:text-gray-400 font-semibold"
+    | City: 
+    p class="font-normal text-gray-500 mb-2"
+      =place.address.city
+  p class="text-xl dark:text-gray-400 font-semibold"
+    |  Country: 
+    p class="font-normal text-gray-500 mb-2"
+      =place.address.country
+  p class="text-xl dark:text-gray-400 font-semibold"
+    |  Post code: 
+    p class="font-normal text-gray-500 mb-2"
+      =place.address.post_code
+  p class="text-xl dark:text-gray-400 font-semibold"
+    |  Line 1: 
+    p class="font-normal text-gray-500 mb-2"
+       =place.address.line1
+  p class="text-xl dark:text-gray-400 font-semibold"
+    |  Line 2: 
+    p class="font-normal text-gray-500 mb-2"
+       =place.address.line2
+  p class="text-xl dark:text-gray-400 font-semibold"
+    |  State: 
+    p class="font-normal text-gray-500 mb-2"
+       =place.address.state 
+  p class="text-xl dark:text-gray-400 font-semibold"
+    |  Longitude: 
+    p class="font-normal text-gray-500 mb-2"
+       =place.address.location.lon 
+  p class="text-xl dark:text-gray-400 font-semibold"
+    |  Latitude: 
+    p class="font-normal text-gray-500 mb-2"
+       =place.address.location.lat    
