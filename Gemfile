@@ -62,6 +62,8 @@ gem 'view_component'
 
 gem 'devise_invitable', '~> 2.0.0'
 
+gem 'geocoder', '~> 1.8', '>= 1.8.1'
+
 group :development, :test do
   gem 'annotate'
   gem 'bullet'
