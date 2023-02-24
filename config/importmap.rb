@@ -10,4 +10,5 @@ pin '@hotwired/turbo-rails', to: 'https://ga.jspm.io/npm:@hotwired/turbo-rails@7
 pin '@hotwired/turbo-rails', to: 'turbo.min.js', preload: true
 
 pin_all_from '/javascript'
-pin 'map'
+pin 'map_for_forms'
+pin 'map_for_index'

@@ -1,30 +1,43 @@
 .flex.flex-col.justify-center.items-center.mt-4
  h1 class="font-semibold text-4xl mb-2"
   |Places:
+.w-full.flex.flex-wrap
+ .w-full class="md:w-1/2 flex flex-col"
+  -places.each do |place| 
+   div data-id=place.id
+    ul class="flex flex-wrap items-center justify-center " 
+     li class="pb-3 sm:pb-4 m-2"
+        p class="text-sm font-medium text-gray-900 truncate dark:text-white"
+         | Places name:  
+         p class="text-sm text-gray-500 truncate dark:text-gray-400"
+          =place.name
+     li class="pb-3 sm:pb-4 m-2"
+        p class="text-sm font-medium text-gray-900 truncate dark:text-white"
+         | City: 
+         p class="text-sm text-gray-500 truncate dark:text-gray-400"
+          =place.address.city
+     li class="pb-3 sm:pb-4 m-2"  
+        p class="text-sm font-medium text-gray-900 truncate dark:text-white"
+         |  Country: 
+         p class="text-sm text-gray-500 truncate dark:text-gray-400"
+          =place.address.country
+     li class="pb-3 sm:pb-4 m-2"     
+        p class="text-sm font-medium text-gray-900 truncate dark:text-white"
+         |  Latitude:
+         p class="text-sm text-gray-500 truncate dark:text-gray-400"
+          = place.address.location.lat
+     li class="pb-3 sm:pb-4 m-2"     
+        p class="text-sm font-medium text-gray-900 truncate dark:text-white"
+         |  Longitude: 
+         p class="text-sm text-gray-500 truncate dark:text-gray-400"
+          = place.address.location.lon
+     li class="pb-3 sm:pb-4"
+          = link_to 'Show details', place_path(id: place.id), class:"text-green-600 border border-green-600 hover:bg-green-600 hover:text-white active:bg-green-800 font-bold uppercase text-xs px-4 py-2 rounded outline-none focus:outline-none mt-2 mr-1 ml-2 mb-1 ease-linear transition-all duration-150"
+     li class="pb-3 sm:pb-4"  
+          = link_to  "Edit", edit_place_path(id: place.id), class:"text-green-600 border border-green-600 hover:bg-green-600 hover:text-white active:bg-green-800 font-bold uppercase text-xs px-4 py-2 rounded outline-none focus:outline-none mt-2 mr-1 ml-2 mb-1 ease-linear transition-all duration-150"
+ .w-1/2.shadow-2xl
+  .map-container
+   #map data-markers=places.map{ |place| {id: place.id, lat: place.address&.location&.lat, lon: place.address&.location&.lon, name: place.name } }.to_json
 
--places.each do |place|
- ul class="flex flex-wrap items-center justify-center mb-6 text-gray-900" 
-  li class="pb-3 sm:pb-4 m-3"
-     p class="text-sm font-medium text-gray-900 truncate dark:text-white"
-      | Places name:  
-      p class="text-sm text-gray-500 truncate dark:text-gray-400"
-        =place.name
-  li class="pb-3 sm:pb-4v"
-     p class="text-sm font-medium text-gray-900 truncate dark:text-white"
-      | City: 
-      p class="text-sm text-gray-500 truncate dark:text-gray-400"
-        =place.address.city
-  li class="pb-3 sm:pb-4 m-3"  
-     p class="text-sm font-medium text-gray-900 truncate dark:text-white"
-      |  Country: 
-      p class="text-sm text-gray-500 truncate dark:text-gray-400"
-       =place.address.country
-  li class="pb-3 sm:pb-4 m-3"     
-     p class="text-sm font-medium text-gray-900 truncate dark:text-white"
-      |  Post code: 
-      p class="text-sm text-gray-500 truncate dark:text-gray-400"
-       =place.address.post_code
-  li class="pb-3 sm:pb-4"
-      = link_to 'Show details', place_path(id: place.id), class:"text-green-600 border border-green-600 hover:bg-green-600 hover:text-white active:bg-green-800 font-bold uppercase text-xs px-4 py-2 rounded outline-none focus:outline-none mt-2 mr-1 ml-2 mb-1 ease-linear transition-all duration-150"
-  li class="pb-3 sm:pb-4"  
-      = link_to  "Edit", edit_place_path(id: place.id), class:"text-green-600 border border-green-600 hover:bg-green-600 hover:text-white active:bg-green-800 font-bold uppercase text-xs px-4 py-2 rounded outline-none focus:outline-none mt-2 mr-1 ml-2 mb-1 ease-linear transition-all duration-150"
+= javascript_import_module_tag 'map_for_index'
+= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['MAPS_API_KEY']}&libraries=places&callback=initMap", defer: true
