@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 class PlacesController < ApplicationController
- 
   def index
-    render locals: { places: Place.where(account:  current_account) }
+    render locals: { places: Place.where(account: current_account) }
   end
 
   def show

@@ -130,6 +130,7 @@ GEM
       thor (>= 0.14.0, < 2)
     foreman (0.87.2)
     formatador (1.1.0)
+    geocoder (1.8.1)
     globalid (1.1.0)
       activesupport (>= 5.0)
     guard (2.18.0)
@@ -427,6 +428,7 @@ DEPENDENCIES
   faker
   figaro
   foreman
+  geocoder (~> 1.8, >= 1.8.1)
   guard-livereload
   guard-rspec
   guard-rubocop

@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+#map {
+  height: 300px; 
+  width: 100%; 
+}
+
+
 /*
 
 @layer components {
