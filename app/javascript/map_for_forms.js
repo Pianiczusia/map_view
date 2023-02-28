@@ -16,8 +16,6 @@ function initMap() {
     lat.value = marker.getPosition().lat()
 
   });
-  
-  window.map = map
 
 }
 
