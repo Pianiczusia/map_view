@@ -1,0 +1,10 @@
+{
+  "name": "pilot-anywhere",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {},
+  "engines": {
+    "node": ">=14 <=16"
+  }
+}
